@@ -1,0 +1,108 @@
+/**
+ * 
+ * @author Vipul
+ * @version 1.0
+ * @since 22/03/2022
+ *
+ */
+public class TestOne {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	//Adds two numbers
+	/**
+	 * <h2>This method will add two numbers</h2>
+	 * 
+	 * @param a - Takes integer value
+	 * @param b - Takes integer value
+	 * @return - will return addition of two number of the tyepe integer
+	 */
+	public int add(int a, int b) {
+		return a + b;
+	}
+	/**
+	 * 
+	 */
+	//Calculates area of a circle
+	/**
+	 * This method is fpor calculating area of circle
+	 * @param radius - Takes integer as a input
+	 * @return - Outputs area of a circle
+	 */
+ double computeCircleArea(double radius) {
+			return Math.PI * radius * radius;
+		//	return 0;
+		}
+		
+		//Divide method
+		//To test for exceptions
+		/**
+		 * <h1>Method for division</h1>
+		 * <div> This method takes in 2 parameter of the type integer. 
+		 * Performs a devision operation and returns the result of the type integer</div> 
+		 * @param a - Pass integer value as numerator
+		 * @param b - Pass integer value as denominator
+		 * @return - Returns a/b
+		 */
+		public int divide(int a, int b) {
+			return a/b;
+		}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class TestOneTest {
+	TestOne mathUtils;
+	
+	@BeforeEach
+	void init() {
+		mathUtils = new TestOne();
+	}
+	
+	@Test
+	@Disabled
+	void test() {
+		fail("Not yet implemented");
+	}
+	
+	
+	@Test
+	@DisplayName("Testing Add Method")
+	void testAdd() {
+		TestOne obj1 = new TestOne();
+		int expected = 2 ;
+		int actual = obj1.add(1, 1);
+		assertEquals(expected, actual);
+	
+	}
+	
+	//Test driven Methodology
+		@Test
+	//	@Tag("Circle")
+		void testCircleRadius() {
+			TestOne obj1 = new TestOne();
+			assertEquals(314.1592653589793, obj1.computeCircleArea(10), "Calculates area of a circle");
+		}
+
+		// Test for Exceptions
+		@Test
+		void testDivide() {
+			TestOne obj1 = new TestOne();
+		//	mathUtils.divide(1, 0);
+			assertThrows(ArithmeticException.class, () -> obj1.divide(1, 0), 
+					"Divide should throw ArithmeticException when denominator is zero");
+		}
+		
+}
+
+
+
